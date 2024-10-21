@@ -109,15 +109,28 @@ Defined script: `--script <script-name>, <>, <>`
 - `-T 4` / `-T aggressive`
 - `-T 5` / `-T insane`
 
-### Firewall
-Nmap's TCP ACK scan (`-sA`) method is much harder to filter for firewalls and IDS/IPS systems than regular SYN (`-sS`) or Connect scans (`sT`) because they only send a TCP packet with only the `ACK` flag. 
+### Firewall, IDS/IPS
 
-So, for example, we could use them to interact with the hosts of the internal network. As another example, we can use `TCP port 53` as a source port (`--source-port`) for our scans. If the administrator uses the firewall to control this port and does not filter IDS/IPS properly, our TCP packets will be trusted and passed through.
+IDS: Intrusion detection system. Scan, analyze and report any potential attack
+IPS: Intrusion prevention system. Taking specific defensive measure.
+IDS/IPS is based on pattern matching and signature.
 
-Now that we have found out that the firewall accepts `TCP port 53`, it is very likely that IDS/IPS filters might also be configured much weaker than others. We can test this by trying to connect to this port by using `Netcat`.
-```shell-session
-ncat -nv --source-port 53 10.129.2.28 50000
-```
+Nmap's TCP ACK scan (`-sA`) method is much harder to filter for firewalls and IDS/IPS systems than regular SYN (`-sS`) or Connect scans (`sT`) because they only send a TCP packet with only the `ACK` flag.
+### Decoys
+
+Type of scan can be used: SYN, ACK, ICMP and OS detection.
+Try:
+- a list of IP `-D RND 'number of random IP'`
+- a different source of IP, `-S #IP`
+- a different port, `--source-port 53'
+The purpose here is to find which port/IP is not filtered on the target machine.
+
+The company DNS server is trusted more than those from the internet -> The idea to use port 53 serving the DNS Server to interact with the hosts of the internal network.
+
+Netcat can also connect from a specific port using the same command
+
+
+
 
 #### Domain information using shodan 
 
