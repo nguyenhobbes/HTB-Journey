@@ -9,3 +9,4 @@ As usual, we start with the nmap
 2 ports open: SSH and HTTP
 
 add editorial.htb to the `/etc/hosts` file
+test
