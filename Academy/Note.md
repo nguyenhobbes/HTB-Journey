@@ -127,14 +127,18 @@ The purpose here is to find which port/IP is not filtered on the target machine.
 
 The company DNS server is trusted more than those from the internet -> The idea to use port 53 serving the DNS Server to interact with the hosts of the internal network.
 
-Netcat can also connect from a specific port using the same command
+Netcat can also connect from a specific port using the same command.
+```
+sudo ncat -nv --source-port 53 10.129.50.108 50000
+sudo nc -p 53 10.129.50.108 50000
+```
 
 
 
 
 #### Domain information using shodan 
 
-![[Pasted image 20240514114542.png]]
+
 
 | **Layer**                | **Description**                                                                                        | **Information Categories**                                                                         |
 | ------------------------ | ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------- |

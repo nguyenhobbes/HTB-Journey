@@ -397,3 +397,28 @@ Below is a sample (not exhaustive) list of company members who may be authorized
 - `OSINT` - Open Source Intelligence Gathering, or hunting/using data about a company and its employees that can be found using search engines and other public sources without interacting with a company's external network
 - `SQL injection/XSS` - a vulnerability in which input is accepted from the user without sanitizing characters meant to manipulate the application's logic in an unintended manner
 
+
+## Enumeration Methodology
+### 1. Infrastructure Based
+#### a. Internet Presence: 
+In other word: "Everything you can find about that subject on the internet", which include:
+- IP Address
+- Domains
+- Subdomains
+- vHosts
+- Cloud Instances
+- Netblocks
+- Security Measures
+#### b. Gateway
+The security guard of the infrastructure
+- Firewalls 
+- DMZ (Demilitarized Zone): Services that exposed to the internet is place in DMZ to isolate Company internal network from the Internet.
+- IPS/IDS
+- EDR, Proxies
+- NAC
+- Network Segmentation
+- VPN
+- Cloudflare: DDoS Protection, Content Delivery Network (CDN), SSL/TLS Encryption.
+
+
+#### DMZ (Demilitarized Zone)
